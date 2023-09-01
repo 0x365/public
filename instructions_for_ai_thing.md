@@ -82,3 +82,12 @@ Pip install torch_sparse
 pip install torch_sparse
 pip install torch_scatter
 ```
+
+## Testing
+
+Run tests
+-s runs with sudo privelages
+```bash
+pytest tests/test_components.py -s
+```
+Make sure `src/data/solvers/vendor/mu-toksia/mu-toksia_static` is set as an executable file and give permissions. Right click on file, allow execution tickbox.
