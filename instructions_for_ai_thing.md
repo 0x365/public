@@ -1,7 +1,7 @@
 # AI Code thingy
 
 ## Info
-This is instructions for (DL-abstract-argumentation)[https://github.com/DennisCraandijk/DL-abstract-argumentation]
+This is instructions for [DL-abstract-argumentation](https://github.com/DennisCraandijk/DL-abstract-argumentation)
 
 ## Install (Works for linux)
 
@@ -65,7 +65,7 @@ Enter venv
 source venv/bin/activate
 ```
 
-Pip install (pytorch)[https://pytorch.org/]. I selected stable, linux, pip, python, cpu and that worked for me.
+Pip install [pytorch](https://pytorch.org/). I selected stable, linux, pip, python, cpu and that worked for me.
 
 Pip install pytorch geometry
 ```bash
