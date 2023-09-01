@@ -333,7 +333,7 @@ class SLExperiment(pl.LightningModule):
 
         # pytorch lightning defaults
         #arg_parser.set_defaults(gpus=1)
-        arg_parser.set_defaults(accelerator='cpu', devices=1)
+        arg_parser.set_defaults(accelerator='cpu', devices=5)
         arg_parser.set_defaults(gradient_clip_val=0.5)
         return arg_parser
 
@@ -361,7 +361,8 @@ def cli_main():
         )
         logger.log_hyperparams(args)
 
-        # save checkpoints based on avg_reward
+        # # save checkpoints based on avg_reward
+        print("test")
         checkpoint_callback = ModelCheckpoint(
             dirpath=logger.experiment.dir,
             save_top_k=1,
@@ -370,13 +371,17 @@ def cli_main():
             save_weights_only=True,
             verbose=True,
         )
+        print("test2222")
         callbacks.append(checkpoint_callback)
+        print("test33333")
 
         if args.tag:
+            print("test44444")
             tag_checkpoint_callback = copy.deepcopy(checkpoint_callback)
             tag_checkpoint_callback.dirpath = model.model_dir
             tag_checkpoint_callback.filename = model.model_name
             callbacks.append(tag_checkpoint_callback)
+        print("test5555")
 
     # early stopping
     if args.patience:
@@ -384,15 +389,18 @@ def cli_main():
             monitor="validation/loss", patience=args.patience, mode="min", verbose=True
         )
         callbacks.append(early_stop_callback)
-
+        print(callbacks)
+    print("test6666")
     pl.seed_everything(123)
+    print("test7777")
+    print(callbacks[1])
     trainer = pl.Trainer.from_argparse_args(
         args,
         logger=logger,
-        callbacks=callbacks,
+        callbacks=callbacks[0],
         track_grad_norm=2,
     )
-
+    print("test888")
     if args.train_ds and args.val_ds:
         trainer.fit(model)
     if args.test_ds:
