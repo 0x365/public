@@ -1,0 +1,17 @@
+torch==2.0.1+cpu
+tqdm==4.66.1
+torch-geometric==2.4.0
+networkx==3.0
+numpy==1.24.1
+pytorch-lightning==1.9.5
+lightning-bolts==0.7.0
+wandb==0.15.9
+gym==0.26.2
+pynauty==2.8.6
+pandas==2.0.3
+torchmetrics==1.1.1
+psutil==5.9.5
+pytest==7.4.0
+python-sat==0.1.8.dev9
+torch-sparse==0.6.17
+torch-scatter==2.1.1
